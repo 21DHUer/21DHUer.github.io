@@ -152,6 +152,59 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-1-☆-x3D-x3D-集合-x3D-x3D"><a href="#1-1-☆-x3D-x3D-集合-x3D-x3D" class="headerlink" title="1.1 ☆&#x3D;&#x3D;集合&#x3D;&#x3D;"></a>1.1 ☆&#x3D;&#x3D;集合&#x3D;&#x3D;</h3><p><strong>华为、 深信服</strong></p>
+<p>集合是一个Java存储容器，主要指的是**&#x3D;&#x3D;内存层面&#x3D;&#x3D;<strong>的存储，不涉及到</strong>持久化的存储**</p>
+<p>注：向Collection中add的对象都必须要重写<code>equals()</code></p>
+<p>&#x3D;&#x3D;数组&#x3D;&#x3D;：</p>
+        
+          <a class="article-more-a" href="/2022/05/02/java%E5%9F%BA%E7%A1%80/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/02/java%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-如何创建一个hexo个人网站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -160,41 +213,9 @@
         <h2 id="如何搭建一个Hexo个人博客"><a href="#如何搭建一个Hexo个人博客" class="headerlink" title="如何搭建一个Hexo个人博客"></a><strong>如何搭建一个Hexo个人博客</strong></h2><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-在官网安装node-js并确认是否安装成功"><a href="#1-在官网安装node-js并确认是否安装成功" class="headerlink" title="1.在官网安装node.js并确认是否安装成功"></a>1.在官网安装node.js并确认是否安装成功</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm --version</span><br><span class="line">node --version</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-安装hexo"><a href="#2-安装hexo" class="headerlink" title="2.安装hexo"></a>2.安装hexo</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//切换镜像源下载</span><br><span class="line">npm install cnpm</span><br><span class="line">cnpm install hexo</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-创建一个blog文件夹并进入，初始化hexo，生成博客框架"><a href="#3-创建一个blog文件夹并进入，初始化hexo，生成博客框架" class="headerlink" title="3.创建一个blog文件夹并进入，初始化hexo，生成博客框架"></a>3.创建一个blog文件夹并进入，初始化hexo，生成博客框架</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//linux环境</span><br><span class="line">sudo hexo init</span><br><span class="line">//win环境</span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">//可以启动测试一下</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p><strong>这里我是以前电脑上就装了node，但是踩坑了：注意node一定要去官网下载最新版，否则在启动时会报错！！！</strong></p>
-<h4 id="4-创建博文"><a href="#4-创建博文" class="headerlink" title="4.创建博文"></a>4.创建博文</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">&quot;我的博客名&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-清理一下环境"><a href="#5-清理一下环境" class="headerlink" title="5.清理一下环境"></a>5.清理一下环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-生成应用"><a href="#6-生成应用" class="headerlink" title="6.生成应用"></a>6.生成应用</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-
-<h4 id="7-此时就可以重新启动查看变化，命令在上面已经叙述过"><a href="#7-此时就可以重新启动查看变化，命令在上面已经叙述过" class="headerlink" title="7.此时就可以重新启动查看变化，命令在上面已经叙述过"></a>7.此时就可以重新启动查看变化，命令在上面已经叙述过</h4><h4 id="8-将其托管到github上：自行在github上创建好一个仓库，注意，仓库名一定要为×××-github-io，×××是你的github的昵称。"><a href="#8-将其托管到github上：自行在github上创建好一个仓库，注意，仓库名一定要为×××-github-io，×××是你的github的昵称。" class="headerlink" title="8.将其托管到github上：自行在github上创建好一个仓库，注意，仓库名一定要为×××.github.io，×××是你的github的昵称。"></a>8.将其托管到github上：自行在github上创建好一个仓库，注意，仓库名一定要为×××.github.io，×××是你的github的昵称。</h4><h4 id="9-修改配置-config-yml文件，在文件的末尾添加如下配置；repo是你github仓库的地址"><a href="#9-修改配置-config-yml文件，在文件的末尾添加如下配置；repo是你github仓库的地址" class="headerlink" title="9.修改配置_config.yml文件，在文件的末尾添加如下配置；repo是你github仓库的地址"></a>9.修改配置_config.yml文件，在文件的末尾添加如下配置；repo是你github仓库的地址</h4><p><img src="/2022/05/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/S9HFIBL9$EPZKRRSM0~~O%7B5.png" alt="S9HFIBL9$EPZKRRSM0~~O{5"></p>
-<h4 id="10-部署到远端"><a href="#10-部署到远端" class="headerlink" title="10.部署到远端"></a>10.部署到远端</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>那么到此，就已经搭建好了一个简单的hexo个人博客啦！访问地址就是你自己github这个博客仓库的地址</p>
-<p>接下来，可以尝试自己在github上搜索一些自己喜欢的主题更换默认主题。</p>
-<h4 id="11-更换主题"><a href="#11-更换主题" class="headerlink" title="11.更换主题"></a>11.更换主题</h4><h5 id="11-1github上找到一个主题仓库进行clone"><a href="#11-1github上找到一个主题仓库进行clone" class="headerlink" title="11.1github上找到一个主题仓库进行clone"></a>11.1github上找到一个主题仓库进行clone</h5><p><img src="/2022/05/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/111.png" alt="111"></p>
-<h5 id="11-2将其放入到项目的themes文件夹下，如themes-x2F-yilia"><a href="#11-2将其放入到项目的themes文件夹下，如themes-x2F-yilia" class="headerlink" title="11.2将其放入到项目的themes文件夹下，如themes&#x2F;yilia"></a>11.2将其放入到项目的themes文件夹下，如themes&#x2F;yilia</h5><p><img src="/2022/05/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/222.png" alt="222"></p>
-<h5 id="11-3修改-config-yml文件，如图，这里填你下载好的主题文件夹名"><a href="#11-3修改-config-yml文件，如图，这里填你下载好的主题文件夹名" class="headerlink" title="11.3修改_config.yml文件，如图，这里填你下载好的主题文件夹名"></a>11.3修改_config.yml文件，如图，这里填你下载好的主题文件夹名</h5><p><img src="/2022/05/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/333.png" alt="333"></p>
-<h5 id="11-4执行hexo-clean—hexo-g—–hexo-系列命令重新刷新页面"><a href="#11-4执行hexo-clean—hexo-g—–hexo-系列命令重新刷新页面" class="headerlink" title="11.4执行hexo clean—hexo g—–hexo 系列命令重新刷新页面"></a>11.4执行hexo clean—hexo g—–hexo 系列命令重新刷新页面</h5><h3 id="排坑"><a href="#排坑" class="headerlink" title="排坑"></a>排坑</h3><p>写博客时大部分时候需要插入图片，我们需要下载一个插件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-
-<p>再将_config.yml配置文件中修改如下：</p>
-<p><img src="/2022/05/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/wrgwrt.png" alt="wrgwrt"></p>
-<p>此时如果用<code>hexo n</code>创建一个新文章，在项目<code>source/_posts</code>下会生成一个与文章名同名的文件夹，将本篇文章所需的全部图片存入此文件夹，再在文章中根据markdown的格式引用图片。本人习惯用Typora编辑文章。</p>
-<p><strong>重点来了！</strong></p>
-<p>如果上述步骤完成后，重新启动项目，图片能正常显示的话，那么恭喜你，以下就不用看了；但如果图片无法正常显示，就需要排坑了！</p>
-<p>在网页查看源码，找到引用图片的位置：</p>
-<p><img src="/2022/05/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/wdadawd.png" alt="wdadawd"></p>
-<p>你会发现路径中多了一些奇奇怪怪的东西，导致路径不对。</p>
-<p><strong>解决方法</strong></p>
-<p>使用记事本打开<code>\blog(根目录)\node_modules\hexo-asset-image\index.js</code>，将第24行改为<code>var endPos = link.length-1</code>;具体如下</p>
-<p><img src="/2022/05/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/20210316003059791.png" alt="20210316003059791"></p>
-<p>此时重启项目，图片正常显示！</p>
-<p>到此，本篇文章就接近尾声啦，以后会继续更新关于hexo功能的扩展。谢谢大家！</p>
-
+        
+          <a class="article-more-a" href="/2022/05/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/#more">more >></a>
+        
       
 
       
