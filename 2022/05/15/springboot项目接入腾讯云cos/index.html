@@ -8,22 +8,25 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>DHUcoder的个人网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2.4 MyBatis Plus 为什么学习MyBatisPlus  可以帮助我们节省大量工作时间，所有的CURD代码他都可以自动化完成 MybatisPlus是简化MyBatis的  特性  无侵入、损耗小、强大的CRUD操作、支持lambda形式调用、内置代码生成器、内置分页插件、内置性能分析插件">
+  <meta name="description" content="如何在项目中接入腾讯云cos服务看网上很少有完整教程，由于自己之前做的一个项目中接入了这个服务，所以整理一下供小伙伴们学习，如按步骤配置，应该都会成功！ 1.开通腾讯云cos服务进入腾讯云官网–&gt;搜索“对象存储”，之前没开通的自行开通，新用户免费试用半年（50G）。 进入访问秘钥–&gt;API秘钥管理，新建秘钥，这是后面我们需要用到的重要信息。如下图所示是我本人的密钥。 注意这个Sec">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DHUcoder的个人网站">
-<meta property="og:url" content="http://example.com/2022/05/11/mybatis-plus%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="http://example.com/2022/05/15/springboot%E9%A1%B9%E7%9B%AE%E6%8E%A5%E5%85%A5%E8%85%BE%E8%AE%AF%E4%BA%91cos/index.html">
 <meta property="og:site_name" content="DHUcoder的个人网站">
-<meta property="og:description" content="2.4 MyBatis Plus 为什么学习MyBatisPlus  可以帮助我们节省大量工作时间，所有的CURD代码他都可以自动化完成 MybatisPlus是简化MyBatis的  特性  无侵入、损耗小、强大的CRUD操作、支持lambda形式调用、内置代码生成器、内置分页插件、内置性能分析插件">
+<meta property="og:description" content="如何在项目中接入腾讯云cos服务看网上很少有完整教程，由于自己之前做的一个项目中接入了这个服务，所以整理一下供小伙伴们学习，如按步骤配置，应该都会成功！ 1.开通腾讯云cos服务进入腾讯云官网–&gt;搜索“对象存储”，之前没开通的自行开通，新用户免费试用半年（50G）。 进入访问秘钥–&gt;API秘钥管理，新建秘钥，这是后面我们需要用到的重要信息。如下图所示是我本人的密钥。 注意这个Sec">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typoraimage-20220508204509309.png">
-<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typoratyporaimage-20220508201157337.png">
-<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typoratyporaimage-20220508201635726.png">
-<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typoratyporaimage-20220508203615175.png">
-<meta property="article:published_time" content="2022-05-11T13:16:16.049Z">
-<meta property="article:modified_time" content="2022-05-08T12:50:10.534Z">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515184823457.png">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515184441033.png">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515185213132.png">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515185613404.png">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515190004871.png">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515190805023.png">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515191557070.png">
+<meta property="article:published_time" content="2022-05-15T10:33:38.776Z">
+<meta property="article:modified_time" content="2022-05-15T12:58:35.732Z">
 <meta property="article:author" content="Mr.Hu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typoraimage-20220508204509309.png">
+<meta name="twitter:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515184823457.png">
   
     <link rel="alternative" href="/atom.xml" title="DHUcoder的个人网站" type="application/atom+xml">
   
@@ -159,269 +162,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-mybatis-plus入门笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-springboot项目接入腾讯云cos" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="2-4-MyBatis-Plus"><a href="#2-4-MyBatis-Plus" class="headerlink" title="2.4 MyBatis Plus"></a>2.4 MyBatis Plus</h3><blockquote>
-<p>为什么学习MyBatisPlus</p>
-</blockquote>
-<p>可以帮助我们节省大量工作时间，所有的CURD代码他都可以自动化完成</p>
-<p>MybatisPlus是<strong>简化</strong>MyBatis的</p>
-<blockquote>
-<p>特性</p>
-</blockquote>
-<p>无侵入、损耗小、强大的CRUD操作、支持lambda形式调用、内置代码生成器、内置分页插件、内置性能分析插件</p>
+        <p>
+
+</p><h3 id="如何在项目中接入腾讯云cos服务"><a href="#如何在项目中接入腾讯云cos服务" class="headerlink" title="如何在项目中接入腾讯云cos服务"></a>如何在项目中接入腾讯云cos服务</h3><p>看网上很少有完整教程，由于自己之前做的一个项目中接入了这个服务，所以整理一下供小伙伴们学习，如按步骤配置，应该都会成功！</p>
+<h4 id="1-开通腾讯云cos服务"><a href="#1-开通腾讯云cos服务" class="headerlink" title="1.开通腾讯云cos服务"></a>1.开通腾讯云cos服务</h4><p>进入腾讯云官网–&gt;搜索“对象存储”，之前没开通的自行开通，新用户免费试用半年（50G）。</p>
+<p>进入访问秘钥–&gt;API秘钥管理，新建秘钥，这是后面我们需要用到的重要信息。如下图所示是我本人的密钥。</p>
+<p>注意这个<strong>SecretId和SecretKey</strong>，这两个在配置文件中需要用到。</p>
 <span id="more"></span>
 
-<h4 id="2-4-1-快速入门"><a href="#2-4-1-快速入门" class="headerlink" title="2.4.1 快速入门"></a>2.4.1 快速入门</h4><p>1、导入对应的依赖</p>
-<p>2、研究依赖如何配置</p>
-<p>3、代码如何编写</p>
-<p>4、提高扩展技术能力</p>
-<p><code>真实开发中，version（乐观锁）、deleted（逻辑删除）、gmt_create、gmt_modified</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515184823457.png" alt="image-20220515184823457"></p>
+<h4 id="2-创建存储桶和文件夹"><a href="#2-创建存储桶和文件夹" class="headerlink" title="2.创建存储桶和文件夹"></a>2.创建存储桶和文件夹</h4><p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515184441033.png" alt="image-20220515184441033"></p>
+<p>注意选择<strong>公有读私有写</strong>，否则可能会影响我们文件的读写</p>
+<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515185213132.png" alt="image-20220515185213132"></p>
+<p>创建完毕后，如下图所示</p>
+<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515185613404.png" alt="image-20220515185613404"></p>
+<p>进入后，创建文件夹，用来存放你要上传的文件，如不创建，会默认直接存放在该桶下。</p>
+<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515190004871.png" alt="image-20220515190004871"></p>
+<h4 id="3-后端接入"><a href="#3-后端接入" class="headerlink" title="3.后端接入"></a>3.后端接入</h4><p>大家可以根据下面打开官方sdk学习文档，自行学习，里面有非常详细的教程。如果觉得有困难，请接着往下做。</p>
+<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515190805023.png" alt="image-20220515190805023"></p>
+<p>选择<strong>上传流类型</strong>，因为我自己在项目中是以流的形式上传的，所以选择学习上传流类型，大家可以根据自己的需要进行学习。</p>
+<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220515191557070.png" alt="image-20220515191557070"></p>
+<h4 id="4-代码测试创建存储桶"><a href="#4-代码测试创建存储桶" class="headerlink" title="4.代码测试创建存储桶"></a>4.代码测试创建存储桶</h4><p>前面我们是手动创建存储桶，现在我们在正式实现功能前，先用代码的方式创建存储桶，如果成功，则说明没问题。我们基于springboot创建一个cos模块，引入依赖。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.qcloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>cos_api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.6.54<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>说明：使用mybatis-plus可以节省我们大量的代码，尽量不要同时导入mybatis和mybatis-plus！ 版本差异</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># springboot 2.×版本以上连接mysql</span></span><br><span class="line"><span class="attr">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3306/mp?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8</span></span><br><span class="line"><span class="attr">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">spring.datasource.password</span>=<span class="string">233</span></span><br></pre></td></tr></table></figure>
+<p>在test包中进行测试</p>
+<p>按照官方教程，代码如下,若执行成功，会创建一个名为“OssTest-1311604510”的存储桶，到此，我们就快成功了！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">cosTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 1 初始化用户身份信息（secretId, secretKey）。</span></span><br><span class="line">        <span class="comment">// SECRETID和SECRETKEY请登录访问管理控制台 https://console.cloud.tencent.com/cam/capi 			进行查看和管理</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">secretId</span> <span class="operator">=</span> <span class="string">&quot;你的secretId&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">secretKey</span> <span class="operator">=</span> <span class="string">&quot;你的secretKey&quot;</span>;</span><br><span class="line">        <span class="type">COSCredentials</span> <span class="variable">cred</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BasicCOSCredentials</span>(secretId, secretKey);</span><br><span class="line">        <span class="comment">// 2 设置 bucket 的地域, COS 地域的简称请参照如下网址，如我的就是“ap-shanghai” 	     </span></span><br><span class="line">        <span class="comment">//https://cloud.tencent.com/document/product/436/6224</span></span><br><span class="line">        <span class="comment">// clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见		源码或者常见问题 Java SDK 部分。</span></span><br><span class="line">        <span class="type">Region</span> <span class="variable">region</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Region</span>(<span class="string">&quot;ap-shanghai&quot;</span>);</span><br><span class="line">        <span class="type">ClientConfig</span> <span class="variable">clientConfig</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClientConfig</span>(region);</span><br><span class="line">        <span class="comment">// 这里建议设置使用 https 协议</span></span><br><span class="line">        <span class="comment">// 从 5.6.54 版本开始，默认使用了 https</span></span><br><span class="line">        clientConfig.setHttpProtocol(HttpProtocol.https);</span><br><span class="line">        <span class="comment">// 3 生成 cos 客户端。</span></span><br><span class="line">        <span class="type">COSClient</span> <span class="variable">cosClient</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">COSClient</span>(cred, clientConfig);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//用户确定地域和存储桶名称后，参考如下示例创建存储桶</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">bucket</span> <span class="operator">=</span> <span class="string">&quot;OssTest-1311604510&quot;</span>; <span class="comment">//存储桶名称，格式：BucketName-APPID</span></span><br><span class="line">        <span class="type">CreateBucketRequest</span> <span class="variable">createBucketRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CreateBucketRequest</span>(bucket);</span><br><span class="line">        <span class="comment">// 设置 bucket 的权限为 Private(私有读写)、其他可选有 PublicRead（公有读私有写）、	</span></span><br><span class="line">        <span class="comment">//PublicReadWrite（公有读写）</span></span><br><span class="line">        createBucketRequest.setCannedAcl(CannedAccessControlList.PublicRead);</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="type">Bucket</span> <span class="variable">bucketResult</span> <span class="operator">=</span> cosClient.createBucket(createBucketRequest);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (CosServiceException serverException) &#123;</span><br><span class="line">            serverException.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (CosClientException clientException) &#123;</span><br><span class="line">            clientException.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        cosClient.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>思考问题？</p>
-</blockquote>
-<p>1、SQL谁帮我们写的？MyBatis-plus帮忙写的</p>
-<p>2、方法哪里来的？MyBatis-plus已经写好了常用查询方法，我们只要写一个Entitymapper继承BaseMapper即可</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;User&gt; &#123;   &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-在application-properties中设置相关变量如下："><a href="#5-在application-properties中设置相关变量如下：" class="headerlink" title="5.在application.properties中设置相关变量如下："></a>5.在application.properties中设置相关变量如下：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spring.tengxun.accessKey=你的secretId</span><br><span class="line">spring.tengxun.secretKey=你的secretKey</span><br><span class="line">spring.tengxun.region=ap-shanghai</span><br><span class="line">spring.tengxun.bucketName=BucketName-APPID</span><br><span class="line">spring.tengxun.path=https://BucketName-APPID.cos.ap-shanghai.myqcloud.com</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-4-2-配置日志"><a href="#2-4-2-配置日志" class="headerlink" title="2.4.2 配置日志"></a>2.4.2 配置日志</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 日志配置</span></span><br><span class="line"><span class="attr">mybatis-plus.configuration.log-impl</span>=<span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br></pre></td></tr></table></figure>
+<h4 id="6-创建一个工具类，在初始化后就进行加载并将上面的配置注入到属性中"><a href="#6-创建一个工具类，在初始化后就进行加载并将上面的配置注入到属性中" class="headerlink" title="6.创建一个工具类，在初始化后就进行加载并将上面的配置注入到属性中"></a>6.创建一个工具类，在初始化后就进行加载并将上面的配置注入到属性中</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConstantOssPropertiesUtils</span> <span class="keyword">implements</span> <span class="title class_">InitializingBean</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;spring.tengxun.accessKey&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String secretId;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;spring.tengxun.secretKey&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String secretKey;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;spring.tengxun.region&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String region;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;spring.tengxun.bucketName&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String bucketName;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Value(&quot;$&#123;spring.tengxun.path&#125;&quot;)</span></span><br><span class="line">        <span class="keyword">private</span> String path;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String SECRET_ID;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String REGION;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String SECRECT_KEY;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String BUCKET_NAME;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> String PATH;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">            SECRET_ID = secretId;</span><br><span class="line">            SECRECT_KEY = secretKey;</span><br><span class="line">            REGION = region;</span><br><span class="line">            BUCKET_NAME = bucketName;</span><br><span class="line">            PATH = path;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h4 id="7-实现上传文件的方法"><a href="#7-实现上传文件的方法" class="headerlink" title="7.实现上传文件的方法"></a>7.实现上传文件的方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FileServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">FileService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">upload</span><span class="params">(MultipartFile file)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 属性赋值，利用到上一步中创建的工具类</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">regionId</span> <span class="operator">=</span> ConstantOssPropertiesUtils.REGION;</span><br><span class="line">        <span class="type">String</span> <span class="variable">secretId</span> <span class="operator">=</span> ConstantOssPropertiesUtils.SECRET_ID;</span><br><span class="line">        <span class="type">String</span> <span class="variable">secretKey</span> <span class="operator">=</span> ConstantOssPropertiesUtils.SECRECT_KEY;</span><br><span class="line">        <span class="type">String</span> <span class="variable">bucketName</span> <span class="operator">=</span> ConstantOssPropertiesUtils.BUCKET_NAME;</span><br><span class="line">        String key;</span><br><span class="line">        <span class="type">COSClient</span> <span class="variable">cosClient</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 创建COSClient实例。</span></span><br><span class="line">            <span class="type">COSCredentials</span> <span class="variable">cred</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BasicCOSCredentials</span>(secretId, secretKey);</span><br><span class="line">            <span class="comment">// 2 设置 bucket 的地域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224</span></span><br><span class="line">            <span class="comment">// clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分。</span></span><br><span class="line">            <span class="type">Region</span> <span class="variable">region</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Region</span>(regionId);</span><br><span class="line">            <span class="type">ClientConfig</span> <span class="variable">clientConfig</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClientConfig</span>(region);</span><br><span class="line">            <span class="comment">// 这里建议设置使用 https 协议</span></span><br><span class="line">            <span class="comment">// 从 5.6.54 版本开始，默认使用了 https</span></span><br><span class="line">            clientConfig.setHttpProtocol(HttpProtocol.https);</span><br><span class="line">            <span class="comment">// 3 生成 cos 客户端。</span></span><br><span class="line">            cosClient = <span class="keyword">new</span> <span class="title class_">COSClient</span>(cred, clientConfig);</span><br><span class="line">            <span class="comment">// 上传文件流。</span></span><br><span class="line">            <span class="type">InputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> file.getInputStream();</span><br><span class="line">            <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> file.getOriginalFilename();</span><br><span class="line">            <span class="comment">//使用uuid+原始文件名的方式保证文件名唯一</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">uuid</span> <span class="operator">=</span> UUID.randomUUID().toString().replaceAll(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            fileName = uuid + fileName;</span><br><span class="line">            <span class="comment">//对象键，具体概念请参考官方文档，这里“typora”相当于你要保存文件的文件夹</span></span><br><span class="line">            key = <span class="string">&quot;typora&quot;</span> + <span class="string">&quot;/&quot;</span> + fileName;</span><br><span class="line">            <span class="comment">//调用方法实现上传</span></span><br><span class="line">            <span class="type">ObjectMetadata</span> <span class="variable">objectMetadata</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectMetadata</span>();</span><br><span class="line">            <span class="type">PutObjectRequest</span> <span class="variable">putObjectRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PutObjectRequest</span>(bucketName,key,inputStream,objectMetadata);</span><br><span class="line">            <span class="type">PutObjectResult</span> <span class="variable">putObjectResult</span> <span class="operator">=</span> cosClient.putObject(putObjectRequest);</span><br><span class="line">            <span class="type">String</span> <span class="variable">requestId</span> <span class="operator">=</span> putObjectResult.getRequestId();</span><br><span class="line">            <span class="comment">//上传之后文件的路径</span></span><br><span class="line">            <span class="comment">//如https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/typoraimage-20211006211808726.png</span></span><br><span class="line">            url = <span class="string">&quot;https://&quot;</span> + bucketName + <span class="string">&quot;.cos.&quot;</span> + regionId + <span class="string">&quot;.myqcloud.com&quot;</span> + <span class="string">&quot;/&quot;</span> + key;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (cosClient != <span class="literal">null</span>)</span><br><span class="line">            cosClient.shutdown();</span><br><span class="line">        <span class="keyword">return</span> url;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-<h4 id="2-4-3-主键生成策略"><a href="#2-4-3-主键生成策略" class="headerlink" title="2.4.3 主键生成策略"></a>2.4.3 主键生成策略</h4><blockquote>
-<p>数据库插入的id的默认值为：全局的唯一id</p>
-</blockquote>
-<p>对应数据库中的主键（uuid、自增id、雪花算法、redis、zookeeper）</p>
-<p><strong>雪花算法：</strong></p>
-<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typoraimage-20220508204509309.png" alt="image-20220508204509309"></p>
-<p>12bit作为毫秒内的流水号</p>
-<p><strong>几乎可以唯一</strong></p>
-<p>实体类字段上<code>@TableId(type = IdType.AUTO)</code></p>
-<blockquote>
-<p>AUTO：主键自增</p>
-</blockquote>
-<p>数据库字段一定要是自增！</p>
-<blockquote>
-<p>NONE:未设置主键</p>
-<p>INPUT：手动输入</p>
-<p>ID_WORKER：默认的全局唯一id</p>
-<p>UUID：全局唯一id</p>
-<p>ID_WORKER_STR：ID_WORKER字符串表示</p>
-</blockquote>
-<p><strong>更新测试</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据id更新数据对象的属性</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testUpdate</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">    user.setName(<span class="string">&quot;狂神&quot;</span>);</span><br><span class="line">    user.setAge(<span class="number">3</span>);</span><br><span class="line">    user.setEmail(<span class="string">&quot;huxin@163.com&quot;</span>);</span><br><span class="line">    user.setId(<span class="number">6L</span>);</span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> userMapper.updateById(user);</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>会进行自动填充</p>
-<p>创建时间、修改时间！这些个操作一般都是自动化完成的，我们不希望手动更新</p>
-<p>阿里巴巴开发手册：所有的数据库表：gmt_create、gmt_modified几乎所有的表都要配置上！而且需要自动化</p>
-<p>1、在数据库添加create_time，update_time字段</p>
-<p>2、实体类字段属性上增加注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField(fill = FieldFill.INSERT)</span></span><br><span class="line"><span class="keyword">private</span> Date createTime;</span><br><span class="line"><span class="meta">@TableField(fill = FieldFill.INSERT_UPDATE)</span></span><br><span class="line"><span class="keyword">private</span> Date updateTime;</span><br></pre></td></tr></table></figure>
-
-<p>3、编写处理器（实现MetaObjectHandler接口）来处理注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span><span class="comment">//一定不要忘记把处理器加到IOC容器中！</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyMetaObjectHandler</span> <span class="keyword">implements</span> <span class="title class_">MetaObjectHandler</span> &#123;</span><br><span class="line">    <span class="comment">//插入时候会执行</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertFill</span><span class="params">(MetaObject metaObject)</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;Start insert fill...&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.setFieldValByName(<span class="string">&quot;createTime&quot;</span>,<span class="keyword">new</span> <span class="title class_">Date</span>(),metaObject);</span><br><span class="line">        <span class="built_in">this</span>.setFieldValByName(<span class="string">&quot;updateTime&quot;</span>,<span class="keyword">new</span> <span class="title class_">Date</span>(),metaObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//更新时候会执行</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">updateFill</span><span class="params">(MetaObject metaObject)</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;start update fill...&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.setFieldValByName(<span class="string">&quot;updateTime&quot;</span>, <span class="keyword">new</span> <span class="title class_">Date</span>(),metaObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-4-4-乐观锁"><a href="#2-4-4-乐观锁" class="headerlink" title="2.4.4 乐观锁"></a>2.4.4 乐观锁</h4><p>面试中进程被问</p>
-<p><strong>原子引用！</strong></p>
-<blockquote>
-<p>乐观锁：十分乐观，它总是认为不会出现问题，无论干什么不去上锁！如果出现了问题，再次更新值测试</p>
-<p>悲观锁：十分悲观，它总是认为出现问题，无论干什么都会上锁！再去操作</p>
-</blockquote>
-<p><code>乐观锁实现方式</code>：</p>
-<blockquote>
-<ul>
-<li><p>取出记录时，获取当前version</p>
-</li>
-<li><p>更新时，带上这个version</p>
-</li>
-<li><p>执行更新时， set version &#x3D; newVersion where version &#x3D; oldVersion</p>
-<p>如果version不对，就更新失败</p>
-</li>
-</ul>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">乐观锁：<span class="number">1</span>、先查询，获得版本号version<span class="operator">=</span><span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--A</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> name <span class="operator">=</span> &quot;kuangshen&quot; ,version <span class="operator">=</span> version<span class="operator">+</span><span class="number">1</span></span><br><span class="line"><span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span> <span class="keyword">and</span> version <span class="operator">=</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--B 线程抢先完成，这个时候version=2，会导致A修改失败</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> name <span class="operator">=</span> &quot;kuangshen&quot; ,version <span class="operator">=</span> version<span class="operator">+</span><span class="number">1</span></span><br><span class="line"><span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span> <span class="keyword">and</span> version <span class="operator">=</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>1、在数据库中增加version字段</p>
-<p>2、我们实体类加对应的字段</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Version</span> <span class="comment">//代表是一个乐观锁的注解</span></span><br><span class="line"><span class="keyword">private</span> Integer version;</span><br></pre></td></tr></table></figure>
-
-<p>3、注册组件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyBatisPlusConfig</span> &#123;</span><br><span class="line">    <span class="comment">//注册乐观锁插件</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> OptimisticLockerInterceptor <span class="title function_">optimisticLockerInterceptor</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">OptimisticLockerInterceptor</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//乐观锁失败测试</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testOptimisticLocker2</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//线程1</span></span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    user.setName(<span class="string">&quot;huxin&quot;</span>);</span><br><span class="line">    user.setEmail(<span class="string">&quot;12345@qq.com&quot;</span>);</span><br><span class="line">    userMapper.updateById(user);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//线程2</span></span><br><span class="line">    <span class="type">User</span> <span class="variable">user2</span> <span class="operator">=</span> userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    user2.setName(<span class="string">&quot;huxin&quot;</span>);</span><br><span class="line">    user2.setEmail(<span class="string">&quot;huxin@qq.com2222&quot;</span>);</span><br><span class="line">    userMapper.updateById(user2);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//可以使用自旋锁来进行操作</span></span><br><span class="line">    userMapper.updateById(user);<span class="comment">//如果没有乐观锁就会覆盖插队线程的值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-4-5-查询操作"><a href="#2-4-5-查询操作" class="headerlink" title="2.4.5 查询操作"></a>2.4.5 查询操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试根据id批量查询</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelect</span><span class="params">()</span>&#123;</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectBatchIds(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//条件查询,注意：key必须要和数据库对应字段一致</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelectByBatchIds</span><span class="params">()</span>&#123;</span><br><span class="line">    HashMap&lt;String, Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    map.put(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;Jack&quot;</span>);</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectByMap(map);</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-4-6-分页查询"><a href="#2-4-6-分页查询" class="headerlink" title="2.4.6 分页查询"></a>2.4.6 分页查询</h4><p>1、原始的limit进行分页</p>
-<p>2、pageHelper第三方插件</p>
-<p>3、MyBatisPlus也内置了分页插件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在Config类中注册分页插件</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> PaginationInterceptor <span class="title function_">paginationInterceptor</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">PaginationInterceptor</span> <span class="variable">paginationInterceptor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PaginationInterceptor</span>();</span><br><span class="line">    <span class="keyword">return</span> paginationInterceptor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试分页查询</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelectPage</span><span class="params">()</span> &#123;</span><br><span class="line">    Page&lt;User&gt; page = <span class="keyword">new</span> <span class="title class_">Page</span>(<span class="number">1</span>,<span class="number">3</span>);</span><br><span class="line">    Page&lt;User&gt; userPage = userMapper.selectPage(page, <span class="literal">null</span>);</span><br><span class="line">    <span class="comment">//返回对象得到分页所有数据</span></span><br><span class="line">    <span class="type">long</span> <span class="variable">pages</span> <span class="operator">=</span> userPage.getPages(); <span class="comment">//总页数</span></span><br><span class="line">    <span class="type">long</span> <span class="variable">current</span> <span class="operator">=</span> userPage.getCurrent(); <span class="comment">//当前页</span></span><br><span class="line">    List&lt;User&gt; records = userPage.getRecords(); <span class="comment">//查询数据集合</span></span><br><span class="line">    <span class="type">long</span> <span class="variable">total</span> <span class="operator">=</span> userPage.getTotal(); <span class="comment">//总记录数</span></span><br><span class="line">    <span class="type">boolean</span> <span class="variable">hasNext</span> <span class="operator">=</span> userPage.hasNext();  <span class="comment">//下一页</span></span><br><span class="line">    <span class="type">boolean</span> <span class="variable">hasPrevious</span> <span class="operator">=</span> userPage.hasPrevious(); <span class="comment">//上一页</span></span><br><span class="line"></span><br><span class="line">    System.out.println(pages);</span><br><span class="line">    System.out.println(current);</span><br><span class="line">    System.out.println(records);</span><br><span class="line">    System.out.println(total);</span><br><span class="line">    System.out.println(hasNext);</span><br><span class="line">    System.out.println(hasPrevious);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//分页查询，查询字段值不为null的属性</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelectMapsPage</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//Page不需要泛型</span></span><br><span class="line">        Page&lt;Map&lt;String, Object&gt;&gt; page = <span class="keyword">new</span> <span class="title class_">Page</span>&lt;&gt;(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">        Page&lt;Map&lt;String, Object&gt;&gt; pageParam = userMapper.selectMapsPage(page, <span class="literal">null</span>);</span><br><span class="line">        List&lt;Map&lt;String, Object&gt;&gt; records = pageParam.getRecords();</span><br><span class="line">        records.forEach(System.out::println);</span><br><span class="line">        System.out.println(pageParam.getCurrent());</span><br><span class="line">        System.out.println(pageParam.getPages());</span><br><span class="line">        System.out.println(pageParam.getSize());</span><br><span class="line">        System.out.println(pageParam.getTotal());</span><br><span class="line">        System.out.println(pageParam.hasNext());</span><br><span class="line">        System.out.println(pageParam.hasPrevious());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typoratyporaimage-20220508201157337.png" alt="image-20220508201157337"></p>
-<p>为什么没有显示所有字段的值？因为字段值为null的没有显示。</p>
-<h4 id="2-4-7-删除操作"><a href="#2-4-7-删除操作" class="headerlink" title="2.4.7 删除操作"></a>2.4.7 删除操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试删除</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testDelete</span><span class="params">()</span>&#123;</span><br><span class="line">    userMapper.deleteById(<span class="number">1446340920357179393L</span>);</span><br><span class="line">    userMapper.deleteBatchIds(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-4-8-逻辑删除"><a href="#2-4-8-逻辑删除" class="headerlink" title="2.4.8 逻辑删除"></a>2.4.8 逻辑删除</h4><blockquote>
-<p>物理删除：从数据库中直接移除</p>
-<p>逻辑删除：再数据库中没有被移除，而是通过一个变量来让他失效，delete&#x3D;0 &#x3D;&gt; delete&#x3D;1  管理员可以查看被删除的记录！防止数据的丢失，类似于回收站，一旦被逻辑删除，在后续的查询操作中不会再显示该条数据。</p>
-</blockquote>
-<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typoratyporaimage-20220508201635726.png" alt="image-20220508201635726"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableLogic</span> <span class="comment">//逻辑删除 0：已删除 1：正常</span></span><br><span class="line"><span class="keyword">private</span> Integer deleted;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置逻辑删除</span></span><br><span class="line"><span class="attr">mybatis-plus.global-config.db-config.logic-delete-value</span>=<span class="string">1</span></span><br><span class="line"><span class="attr">mybatis-plus.global-config.db-config.logic-not-delete-value</span>=<span class="string">0</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-4-9-条件构造器（十分重要）"><a href="#2-4-9-条件构造器（十分重要）" class="headerlink" title="2.4.9 条件构造器（十分重要）"></a>2.4.9 条件构造器（十分重要）</h4><p>Wrapper</p>
-<p>我们写一些复杂的sql就可以使用它来替换</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* @Description: 删除name不为空并且邮箱不为空,年龄大于等于22岁的user</span></span><br><span class="line"><span class="comment">* @Author: Mr.hu</span></span><br><span class="line"><span class="comment">* @Time: 2022/5/8</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testQuery</span><span class="params">()</span> &#123;</span><br><span class="line">        QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">        queryWrapper</span><br><span class="line">                .isNotNull(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">                .ge(<span class="string">&quot;age&quot;</span>, <span class="number">22</span>)</span><br><span class="line">                .isNotNull(<span class="string">&quot;email&quot;</span>);</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> userMapper.delete(queryWrapper);</span><br><span class="line">        System.out.println(<span class="string">&quot;delete return count = &quot;</span> + result);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typoratyporaimage-20220508203615175.png" alt="image-20220508203615175"></p>
-<table>
-<thead>
-<tr>
-<th><strong>查询方式</strong></th>
-<th><strong>说明</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>setSqlSelect</strong></td>
-<td>设置 SELECT 查询字段</td>
-</tr>
-<tr>
-<td><strong>where</strong></td>
-<td>WHERE  语句，拼接  + WHERE 条件</td>
-</tr>
-<tr>
-<td><strong>and</strong></td>
-<td>AND  语句，拼接  + AND 字段&#x3D;值</td>
-</tr>
-<tr>
-<td><strong>andNew</strong></td>
-<td>AND  语句，拼接  + AND (字段&#x3D;值)</td>
-</tr>
-<tr>
-<td><strong>or</strong></td>
-<td>OR  语句，拼接  + OR 字段&#x3D;值</td>
-</tr>
-<tr>
-<td><strong>orNew</strong></td>
-<td>OR  语句，拼接  + OR (字段&#x3D;值)</td>
-</tr>
-<tr>
-<td><strong>eq</strong></td>
-<td>等于&#x3D;</td>
-</tr>
-<tr>
-<td><strong>allEq</strong></td>
-<td>基于 map 内容等于&#x3D;</td>
-</tr>
-<tr>
-<td><strong>ne</strong></td>
-<td>不等于&lt;&gt;</td>
-</tr>
-<tr>
-<td><strong>gt</strong></td>
-<td>大于&gt;</td>
-</tr>
-<tr>
-<td><strong>ge</strong></td>
-<td>大于等于&gt;&#x3D;</td>
-</tr>
-<tr>
-<td><strong>lt</strong></td>
-<td>小于&lt;</td>
-</tr>
-<tr>
-<td><strong>le</strong></td>
-<td>小于等于&lt;&#x3D;</td>
-</tr>
-<tr>
-<td><strong>like</strong></td>
-<td>模糊查询 LIKE</td>
-</tr>
-<tr>
-<td><strong>notLike</strong></td>
-<td>模糊查询 NOT LIKE</td>
-</tr>
-<tr>
-<td><strong>in</strong></td>
-<td>IN  查询</td>
-</tr>
-<tr>
-<td><strong>notIn</strong></td>
-<td>NOT  IN 查询</td>
-</tr>
-<tr>
-<td><strong>isNull</strong></td>
-<td>NULL  值查询</td>
-</tr>
-<tr>
-<td><strong>isNotNull</strong></td>
-<td>IS  NOT NULL</td>
-</tr>
-<tr>
-<td><strong>groupBy</strong></td>
-<td>分组 GROUP BY</td>
-</tr>
-<tr>
-<td><strong>having</strong></td>
-<td>HAVING  关键词</td>
-</tr>
-<tr>
-<td><strong>orderBy</strong></td>
-<td>排序 ORDER BY</td>
-</tr>
-<tr>
-<td><strong>orderAsc</strong></td>
-<td>ASC  排序 ORDER  BY</td>
-</tr>
-<tr>
-<td><strong>orderDesc</strong></td>
-<td>DESC  排序 ORDER  BY</td>
-</tr>
-<tr>
-<td><strong>exists</strong></td>
-<td>EXISTS  条件语句</td>
-</tr>
-<tr>
-<td><strong>notExists</strong></td>
-<td>NOT  EXISTS 条件语句</td>
-</tr>
-<tr>
-<td><strong>between</strong></td>
-<td>BETWEEN  条件语句</td>
-</tr>
-<tr>
-<td><strong>notBetween</strong></td>
-<td>NOT  BETWEEN 条件语句</td>
-</tr>
-<tr>
-<td><strong>addFilter</strong></td>
-<td>自由拼接 SQL</td>
-</tr>
-<tr>
-<td><strong>last</strong></td>
-<td>拼接在最后，例如：last(“LIMIT 1”)</td>
-</tr>
-</tbody></table>
-<p><strong>待更新……</strong></p>
+<p>以上就是项目接入腾讯云cos的全部代码，亲测有效，需要修改的只有固定的那几个值，大家根据自己的账号查询修改即可，其他代码可全部复制！大家也去动手试一试吧！</p>
 
       
 
@@ -501,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/11/mybatis-plus%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/15/springboot%E9%A1%B9%E7%9B%AE%E6%8E%A5%E5%85%A5%E8%85%BE%E8%AE%AF%E4%BA%91cos/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -515,17 +294,8 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/05/15/springboot%E9%A1%B9%E7%9B%AE%E6%8E%A5%E5%85%A5%E8%85%BE%E8%AE%AF%E4%BA%91cos/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/05/06/Docker%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/05/11/mybatis-plus%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
