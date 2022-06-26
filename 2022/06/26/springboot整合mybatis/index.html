@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022 | DHUcoder的个人网站</title>
+  <title>DHUcoder的个人网站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="springboot如何整合mybatis访问数据库对于新手来说，springboot整合各个组件的步骤容易记混，特此记录一下，以便以后查阅。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="DHUcoder的个人网站">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+<meta property="og:url" content="http://example.com/2022/06/26/springboot%E6%95%B4%E5%90%88mybatis/index.html">
 <meta property="og:site_name" content="DHUcoder的个人网站">
+<meta property="og:description" content="springboot如何整合mybatis访问数据库对于新手来说，springboot整合各个组件的步骤容易记混，特此记录一下，以便以后查阅。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220626144550106.png">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220626144820982.png">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220626145357994.png">
+<meta property="og:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220626145444401.png">
+<meta property="article:published_time" content="2022-06-26T06:34:57.804Z">
+<meta property="article:modified_time" content="2022-06-26T07:07:12.263Z">
 <meta property="article:author" content="Mr.Hu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220626144550106.png">
   
     <link rel="alternative" href="/atom.xml" title="DHUcoder的个人网站" type="application/atom+xml">
   
@@ -150,148 +159,172 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-springboot整合mybatis" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="springboot如何整合mybatis访问数据库"><a href="#springboot如何整合mybatis访问数据库" class="headerlink" title="springboot如何整合mybatis访问数据库"></a>springboot如何整合mybatis访问数据库</h3><p>对于新手来说，springboot整合各个组件的步骤容易记混，特此记录一下，以便以后查阅。</p>
+<span id="more"></span>
+
+<h5 id="1-在springboot工程的pom文件中引入mybatis使用场景依赖"><a href="#1-在springboot工程的pom文件中引入mybatis使用场景依赖" class="headerlink" title="1 在springboot工程的pom文件中引入mybatis使用场景依赖"></a>1 在springboot工程的pom文件中引入mybatis使用场景依赖</h5><p>进入mybatis官网<a target="_blank" rel="noopener" href="https://github.com/mybatis">https://github.com/mybatis</a></p>
+<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220626144550106.png" alt="image-20220626144550106"></p>
+<p>找一个想要的版本（建议用发布版），引入其依赖，如：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-创建一个mysql数据库表和javaBean相对应"><a href="#2-创建一个mysql数据库表和javaBean相对应" class="headerlink" title="2 创建一个mysql数据库表和javaBean相对应"></a>2 创建一个mysql数据库表和javaBean相对应</h5><p>建一个Account表随便插入几条数据，并在项目中创建Account类与之对应</p>
+<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220626144820982.png" alt="image-20220626144820982"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Account</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String userId;</span><br><span class="line">    <span class="keyword">private</span> Integer money;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，表中的user_id与属性中的userId没有对应上，需要开启配置，这个等后面再说！</p>
+<h5 id="3-在项目中创建对应的Mapper接口以及在resources下的mapper文件夹下创建mapper映射文件"><a href="#3-在项目中创建对应的Mapper接口以及在resources下的mapper文件夹下创建mapper映射文件" class="headerlink" title="3 在项目中创建对应的Mapper接口以及在resources下的mapper文件夹下创建mapper映射文件"></a>3 在项目中创建对应的Mapper接口以及在resources下的mapper文件夹下创建mapper映射文件</h5><p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220626145357994.png" alt="image-20220626145357994"></p>
+<p><img src="https://typora-1311604510.cos.ap-shanghai.myqcloud.com/typora/image-20220626145444401.png" alt="image-20220626145444401"></p>
+<p>将该写的都写好，比如namespace，resultType等</p>
+<h5 id="4-将Mapper接口和mapper映射文件相对应并且写好application-properties配置文件"><a href="#4-将Mapper接口和mapper映射文件相对应并且写好application-properties配置文件" class="headerlink" title="4 将Mapper接口和mapper映射文件相对应并且写好application.properties配置文件"></a>4 将Mapper接口和mapper映射文件相对应并且写好application.properties配置文件</h5><p>将Mapper接口和mapper映射文件相对应有两种办法：@Mapper或@MapperScan</p>
+<p>@Mapper直接标注在AccountMapper上即可，@MapperScan标注在配置类上或者标注在启动类上，如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span></span><br><span class="line"><span class="meta">@MapperScan(basePackages = &quot;com.example.dao&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SpringbootMybatisApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(SpringbootMybatisApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编写配置文件：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">8080</span></span><br><span class="line"><span class="attr">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3306/springdb?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8</span></span><br><span class="line"><span class="attr">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">spring.datasource.password</span>=<span class="string">233</span></span><br><span class="line"><span class="attr">//这是开启驼峰命名规则，将数据库中的user_id和属性userId对应上</span></span><br><span class="line"><span class="attr">mybatis.configuration.map-underscore-to-camel-case</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">//指定mapper映射文件的路径</span></span><br><span class="line"><span class="attr">mybatis.mapper-locations</span>=<span class="string">classpath:mapper/*.xml</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的可配置项均为spring注入组件中的属性，大家可以进入源码进行查看。</p>
+<h5 id="5-写Service接口以及在impl包下实现Service接口，并在ServiceImpl下面注入对应的Mapper"><a href="#5-写Service接口以及在impl包下实现Service接口，并在ServiceImpl下面注入对应的Mapper" class="headerlink" title="5 写Service接口以及在impl包下实现Service接口，并在ServiceImpl下面注入对应的Mapper"></a>5 写Service接口以及在impl包下实现Service接口，并在ServiceImpl下面注入对应的Mapper</h5><p>在service包下写接口并在serviceimpl实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AccountService</span> &#123;</span><br><span class="line">    Account <span class="title function_">getAccById</span><span class="params">(Integer id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一定不要忘了加@Service注解</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AccountServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">AccountService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    AccountMapper accountMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Account <span class="title function_">getAccById</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="type">Account</span> <span class="variable">acc</span> <span class="operator">=</span> accountMapper.getAllAccById(id);</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-写Controller，在Controller中注入对应Service"><a href="#6-写Controller，在Controller中注入对应Service" class="headerlink" title="6 写Controller，在Controller中注入对应Service"></a>6 写Controller，在Controller中注入对应Service</h5><p>最后在contoller中调用service即可</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AccountController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    AccountService accountService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/acc&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Account <span class="title function_">getAccountById</span><span class="params">(<span class="meta">@RequestParam(&quot;id&quot;)</span> Integer id)</span>&#123;</span><br><span class="line">        <span class="type">Account</span> <span class="variable">acc</span> <span class="operator">=</span> accountService.getAccById(id);</span><br><span class="line">        <span class="keyword">return</span> acc;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/06/26/springboot%E6%95%B4%E5%90%88mybatis/" class="archive-article-date">
-  	<time datetime="2022-06-26T06:34:57.804Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/06/26/springboot%E6%95%B4%E5%90%88mybatis/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/15/springboot%E9%A1%B9%E7%9B%AE%E6%8E%A5%E5%85%A5%E8%85%BE%E8%AE%AF%E4%BA%91cos/" class="archive-article-date">
-  	<time datetime="2022-05-15T10:33:38.776Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-15</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/11/mybatis-plus%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-05-11T13:16:16.049Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-11</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2022/05/15/springboot%E9%A1%B9%E7%9B%AE%E6%8E%A5%E5%85%A5%E8%85%BE%E8%AE%AF%E4%BA%91cos/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/06/Docker%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-05-06T11:35:55.405Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-06</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/02/java%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2022-05-02T04:44:11.213Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/01/%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAhexo%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" class="archive-article-date">
-  	<time datetime="2022-05-01T14:38:19.725Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-01</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -314,8 +347,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
